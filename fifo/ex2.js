@@ -7,13 +7,13 @@ class fifo_cache {
         this.cache = new Map()
     }
     set(key, value) {
-        this.proverka()
+        this._proverka()
         this.cache.set(key, value)
     }
     get(key) {
         return this.cache.has(key) ? this.cache.get(key) : undefined
     }
-    proverka() {
+    _proverka() {
         if (this.cache.size >= this.size) {
             // proverka удалит лишнюю (первую/старую) пару, если колекция переполнится
             const firstKey = this.cache.keys().next().value //идея fifo "первым зашел - первым удалился"
